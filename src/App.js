@@ -13,11 +13,11 @@ export default function App() {
           autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
-          closeOnClick
+          closeOnClick={false}
           rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
+          pauseOnFocusLoss={false}
+          draggable={false}
+          pauseOnHover={false}
         />
         <Routes />
       </BrowserRouter>
