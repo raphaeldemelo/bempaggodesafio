@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth';
 
 
 import {
@@ -8,7 +9,6 @@ import {
     AreaLogo,
     AreaFormulario,
     Botao,
-    Imagem,
     Titulo,
     Input,
 } from './styles';
@@ -19,8 +19,14 @@ export default function Signup() {
     const [senha, setSenha] = useState('');
     const [nome, setNome] = useState('');
 
+    const { signUp } = useContext(AuthContext);
+
     function handleSubmit(e) {
         e.preventDefault();
+
+        if (nome !== '' && email !== '' && senha !== '') {
+            signUp(email, senha, nome);
+        }
     }
 
     return (
