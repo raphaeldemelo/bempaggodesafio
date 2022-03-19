@@ -7,7 +7,6 @@ import {
     AreaLogo,
     AreaFormulario,
     Botao,
-
     Titulo,
     Input,
 } from './styles';
