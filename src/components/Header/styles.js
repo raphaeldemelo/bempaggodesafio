@@ -22,7 +22,7 @@ padding: 5px;
 width: 80px;
 height: 50px;
 border-radius: 8px;
-background-color: #0046A0;
+background-color: #115F9E;
 margin-left: 10px;
 display: flex;
 align-items: center;

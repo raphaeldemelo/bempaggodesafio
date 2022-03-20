@@ -43,8 +43,7 @@ export default function Header() {
 
 
             <Botao onClick={() => signOut()}>
-                <BiLogOutCircle size={20} color='#fff' />
-                <TextoBotao>Sair</TextoBotao>
+                <BiLogOutCircle size={30} color='#fff' />
             </Botao>
         </Container>
     );

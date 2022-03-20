@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/auth';
 import Header from '../../components/Header';
+import Formulario from '../../components/Formulario';
 
 import {
     Container,
@@ -12,7 +13,8 @@ export default function Dashboard() {
 
     return (
         <Container>
-            <Header/>
+            <Header />
+            <Formulario />
         </Container>
     );
 }
