@@ -17,7 +17,13 @@ export default function Formulario() {
     return (
         <Container>
             <Header>
-                <Titulo style={{ color: '#fff' }}>Compre seu pacote de adesivos</Titulo>
+
+                <Titulo style={{ color: '#fff', fontWeight: 'lighter', marginTop: 20, marginLeft: 25 }}>
+                    Formulário <br />
+                    para compras de
+                </Titulo>
+
+                <Titulo style={{ color: '#fff', marginLeft: 25 }}>Compre seu pacote de adesivos</Titulo>
             </Header>
 
 

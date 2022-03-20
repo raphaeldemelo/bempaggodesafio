@@ -8,11 +8,18 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 border-radius: 10px;
+
+@media screen and (max-width: 720px){
+    width: 100%;
+    height: auto;
+    position: relative; 
+}
 `;
 
 export const Header = styled.div`
 background-color: #2F3676;
 height: 200px;
+flex-direction: column;
 `;
 
 export const Conteudo = styled.div`
@@ -52,6 +59,12 @@ align-items: center;
 padding-right: 20px;
 border-bottom-right-radius: 10px;
 border-bottom-left-radius: 10px;
+
+@media screen and (max-width: 720px){
+    width: 100%;
+    height: 100px;
+    position: relative; 
+}
 `;
 
 export const Botao = styled.button`
