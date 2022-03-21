@@ -8,6 +8,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 border-radius: 10px;
+margin-top: 50px;
 
 @media screen and (max-width: 720px){
     width: 100%;
@@ -17,16 +18,27 @@ border-radius: 10px;
 `;
 
 export const Header = styled.div`
-background-color: #2F3676;
+background-color: #2f3676;
 height: 200px;
-flex-direction: column;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+align-items: center;
 `;
 
 export const Conteudo = styled.div`
 `;
 
 export const Input = styled.input`
-
+margin-left: 5px;
+margin-right: 5px;
+height: 40px;
+border-radius: 5px;
+border: 1px solid #2F3575;
+background-color: #DCE3E9;
+text-align: center;
 `;
 
 export const Titulo = styled.h1`
@@ -71,14 +83,17 @@ export const Botao = styled.button`
 background-color: #2F3575;
 padding: 10px;
 border-radius: 10px;
-width: 120px;
-height: 45px;
 border: 0;
+width: 50px;
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 export const TextoBotao = styled.h1`
 color: #fff;
-font-size: 16px;
+font-size: 30px;
 `;
 
 export const TextoArea = styled.textarea`
@@ -88,4 +103,21 @@ min-height: 100px;
 resize: none;
 padding: 10px;
 margin-left: 15px;
+background-color: #DCE3E9;
+border: 1px solid #2F3575;
+`;
+
+export const Imagem = styled.img`
+width: 150px;
+height: 150px;
+`;
+
+export const AreaTitulo = styled.div`
+
+`;
+
+export const AreaQuantidadeProdutos = styled.div`
+display: flex;
+align-items: center;
+margin-left: 10px;
 `;

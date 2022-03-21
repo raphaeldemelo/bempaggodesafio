@@ -11,19 +11,24 @@ import {
     Botao,
     TextoBotao,
     TextoArea,
+    AreaTitulo,
+    Imagem,
+    AreaQuantidadeProdutos,
 } from './styles';
+import caixa from '../../assets/caixa.jpg'
 
 export default function Formulario() {
     return (
         <Container>
             <Header>
-
-                <Titulo style={{ color: '#fff', fontWeight: 'lighter', marginTop: 20, marginLeft: 25 }}>
-                    Formulário <br />
-                    para compras de
-                </Titulo>
-
-                <Titulo style={{ color: '#fff', marginLeft: 25 }}>Compre seu pacote de adesivos</Titulo>
+                <AreaTitulo>
+                    <Titulo style={{ color: '#fff', fontWeight: 'lighter', marginTop: 20, marginLeft: 25 }}>
+                        Formulário <br />
+                        para compras de
+                    </Titulo>
+                    <Titulo style={{ color: '#fff', marginLeft: 25, fontSize: 20 }}>Pacote de adesivos</Titulo>
+                </AreaTitulo>
+                <Imagem src={caixa} />
             </Header>
 
 
@@ -57,19 +62,33 @@ export default function Formulario() {
 
                 <Titulo>Quantos adesivos de cada?</Titulo>
 
+                <AreaQuantidadeProdutos>
+                    <Botao>
+                        <TextoBotao>-</TextoBotao>
+                    </Botao>
+
+                    <Input disabled />
+
+                    <Botao>
+                        <TextoBotao>+</TextoBotao>
+                    </Botao>
+                </AreaQuantidadeProdutos>
+
                 <Titulo>Observações:</Titulo>
 
                 <TextoArea
                     type="text"
                     placeholder="Alguma dúvida? Recado?"
-
                 />
 
             </Conteudo>
 
             <Footer>
-                <Botao>
-                    <TextoBotao>ENVIAR</TextoBotao>
+                <Botao
+                    style={{ width: 120, height: 45 }}
+                    onClick={() => alert('clicou em enviar')}
+                >
+                    <TextoBotao style={{ fontSize: 16 }}>ENVIAR</TextoBotao>
                 </Botao>
             </Footer>
         </Container>
