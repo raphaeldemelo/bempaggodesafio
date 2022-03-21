@@ -23,12 +23,18 @@ export default function Header() {
 
             <AreaBotao>
 
-                <Link style={{ alignItems: 'center', display: 'flex', marginRight: 10}}>
+                <Link
+                    style={{ alignItems: 'center', display: 'flex', marginRight: 10 }}
+                    to='/dashboard'
+                >
                     <TiHome size={20} color='#fff' />
                     <TextoMenu>Início</TextoMenu>
                 </Link>
 
-                <Link style={{ alignItems: 'center', display: 'flex' }}>
+                <Link
+                    style={{ alignItems: 'center', display: 'flex' }}
+                    to='/carrinho'
+                >
                     <TiShoppingCart size={20} color='#fff' />
                     <TextoMenu>Carrinho</TextoMenu>
                 </Link>
