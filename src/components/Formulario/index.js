@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Container,
     Header,
@@ -18,6 +18,9 @@ import {
 import caixa from '../../assets/caixa.jpg'
 
 export default function Formulario() {
+
+    const [contadorProdutos, setContadorProdutos] = useState(1);
+
     return (
         <Container>
             <Header>
@@ -56,6 +59,7 @@ export default function Formulario() {
                     <Input
                         type="checkbox"
                         name='checkbox'
+                        value={contadorProdutos}
                     />
                     <TextOpcoes>Angular</TextOpcoes>
                 </AreaCheckbox>
@@ -63,13 +67,20 @@ export default function Formulario() {
                 <Titulo>Quantos adesivos de cada?</Titulo>
 
                 <AreaQuantidadeProdutos>
-                    <Botao>
-                        <TextoBotao>-</TextoBotao>
-                    </Botao>
 
-                    <Input disabled />
+                    {contadorProdutos > 1 &&
+                        <Botao onClick={() => setContadorProdutos(contadorProdutos - 1)}>
+                            <TextoBotao>-</TextoBotao>
+                        </Botao>
+                    }
 
-                    <Botao>
+                    <Input
+                        disabled
+                        value={contadorProdutos}
+                        onChange={(e) => setContadorProdutos(e.target.value)}
+                    />
+
+                    <Botao onClick={() => setContadorProdutos(contadorProdutos + 1)}>
                         <TextoBotao>+</TextoBotao>
                     </Botao>
                 </AreaQuantidadeProdutos>
@@ -88,7 +99,7 @@ export default function Formulario() {
                     style={{ width: 120, height: 45 }}
                     onClick={() => alert('clicou em enviar')}
                 >
-                    <TextoBotao style={{ fontSize: 16 }}>ENVIAR</TextoBotao>
+                    <TextoBotao style={{ fontSize: 16 }}>ENVIAR </TextoBotao>
                 </Botao>
             </Footer>
         </Container>

@@ -29,6 +29,10 @@ align-items: center;
 `;
 
 export const Conteudo = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 55%;
 `;
 
 export const Input = styled.input`
@@ -102,7 +106,8 @@ border-radius: 7px;
 min-height: 100px;
 resize: none;
 padding: 10px;
-margin-left: 15px;
+margin-left: 10px;
+margin-right: 10px;
 background-color: #DCE3E9;
 border: 1px solid #2F3575;
 `;
@@ -112,9 +117,7 @@ width: 150px;
 height: 150px;
 `;
 
-export const AreaTitulo = styled.div`
-
-`;
+export const AreaTitulo = styled.div``;
 
 export const AreaQuantidadeProdutos = styled.div`
 display: flex;
