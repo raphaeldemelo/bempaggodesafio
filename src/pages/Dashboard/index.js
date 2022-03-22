@@ -9,8 +9,6 @@ import {
 
 export default function Dashboard() {
 
-    const { signOut } = useContext(AuthContext);
-
     return (
         <Container>
             <Header />

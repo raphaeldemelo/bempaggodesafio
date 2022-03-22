@@ -10,7 +10,8 @@ export default function RouteWrapper({
 
     const { signed, loading } = useContext(AuthContext);
 
-
+    // const signed = true;
+    // const loading = false;
 
     if (loading) {
         return (

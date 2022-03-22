@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import firebase from '../../services/firebaseConnection';
+import { toast } from 'react-toastify';
 import {
     Container,
     Header,
@@ -15,11 +17,39 @@ import {
     Imagem,
     AreaQuantidadeProdutos,
 } from './styles';
-import caixa from '../../assets/caixa.jpg'
+import caixa from '../../assets/caixa.jpg';
 
 export default function Formulario() {
 
     const [contadorProdutos, setContadorProdutos] = useState(1);
+    const [observacao, setObservacao] = useState('');
+    const [produto, setProduto] = useState();
+
+
+    async function handleAdd(e) {
+        e.preventDefault();
+        await firebase.firestore().collection('compras')
+            .doc('comprasID')
+            .set({
+                observacao: observacao,
+                contadorProdutos: contadorProdutos,
+                produto: produto,
+
+            })
+            .then(() => {
+                toast.success('Item enviado para o carrinho');
+            })
+            .catch((error) => {
+                toast.error('Algo deu errado, tente novamente mais tarde!');
+            })
+        setContadorProdutos(1);
+        setObservacao('')
+    }
+
+    function handleOptions(e) {
+        setProduto(e.target.value)
+    }
+
 
     return (
         <Container>
@@ -35,21 +65,27 @@ export default function Formulario() {
             </Header>
 
 
-            <Conteudo>
-                <Titulo>Quais adesivos:</Titulo>
+            <Conteudo conteudo={observacao}>
+                <Titulo>Qual adesivo você deseja?</Titulo>
 
                 <AreaCheckbox>
                     <Input
-                        type="checkbox"
-                        name='checkbox'
+                        type="radio"
+                        name='radio'
+                        value='React'
+                        onChange={handleOptions}
+                        checked={produto === 'React'}
                     />
                     <TextOpcoes>React</TextOpcoes>
                 </AreaCheckbox>
 
                 <AreaCheckbox>
                     <Input
-                        type="checkbox"
-                        name='checkbox'
+                        type="radio"
+                        name='radio'
+                        value='Vue'
+                        onChange={handleOptions}
+                        checked={produto === 'Vue'}
                     />
                     <TextOpcoes>Vue</TextOpcoes>
                 </AreaCheckbox>
@@ -57,14 +93,16 @@ export default function Formulario() {
 
                 <AreaCheckbox>
                     <Input
-                        type="checkbox"
-                        name='checkbox'
-                        value={contadorProdutos}
+                        type="radio"
+                        name='radio'
+                        value='Angular'
+                        onChange={handleOptions}
+                        checked={produto === 'Angular'}
                     />
                     <TextOpcoes>Angular</TextOpcoes>
                 </AreaCheckbox>
 
-                <Titulo>Quantos adesivos de cada?</Titulo>
+                <Titulo>Quantas unidades desse adesivo?</Titulo>
 
                 <AreaQuantidadeProdutos>
 
@@ -90,14 +128,17 @@ export default function Formulario() {
                 <TextoArea
                     type="text"
                     placeholder="Alguma dúvida? Recado?"
+                    value={observacao}
+                    onChange={(e) => setObservacao(e.target.value)}
                 />
 
             </Conteudo>
 
             <Footer>
+
                 <Botao
                     style={{ width: 120, height: 45 }}
-                    onClick={() => alert('clicou em enviar')}
+                    onClick={handleAdd}
                 >
                     <TextoBotao style={{ fontSize: 16 }}>ENVIAR </TextoBotao>
                 </Botao>
